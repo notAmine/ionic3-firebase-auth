@@ -11,6 +11,8 @@ import { CallService } from '../../services/call.service';
 import { MapsService } from '../../services/maps.service';
 import { InAppBrowserService } from '../../services/in-app-browser.service';
 import { data } from './home-data';
+import {MoviesPage} from "../movies/movies";
+import {WatchlistPage} from "../watchlist/watchlist";
 
 @Component({
 	templateUrl: 'home.html',
@@ -62,17 +64,17 @@ export class HomePage {
 
 	private initTiles(): void {
 		this.tiles = [[{
-			title: 'Wordpress',
-			path: 'wordpress-articles',
-			icon: 'logo-wordpress',
-			component: WordpressListPage
+			title: 'Search Movies',
+			path: 'movies',
+			icon: 'film',
+			component: MoviesPage
 		}, {
-			title: 'Slides',
-			path: 'slides',
-			icon: 'swap',
-			component: SlideBoxPage
+			title: 'My Watchlist',
+			path: 'watchlist',
+			icon: 'star',
+			component: WatchlistPage
 		}], [{
-			title: 'Map',
+			title: 'Cinemas Map',
 			path: 'map',
 			icon: 'map',
 			component: GoogleMapsPage

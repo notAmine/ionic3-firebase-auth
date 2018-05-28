@@ -7,11 +7,11 @@ export class Config {
 
 export const firebaseConfig = {
 	fire: {
-		apiKey: "AIzaSyDW6woVw3gDQVvKtreZ4g9igRW92knq4Sg",
-		authDomain: "supermodular-c9b81.firebaseapp.com",
-		databaseURL: "https://supermodular-c9b81.firebaseio.com",
-		projectId: "supermodular-c9b81",
-		storageBucket: "supermodular-c9b81.appspot.com",
-		messagingSenderId: "374150420031"
+		apiKey: "AIzaSyAst1mP-xy-F02lR4SVifP7mSn-39YtDco",
+		authDomain: "mobile-cinemas.firebaseapp.com",
+		databaseURL: "https://mobile-cinemas.firebaseio.com",
+		projectId: "mobile-cinemas",
+		storageBucket: "mobile-cinemas.appspot.com",
+		messagingSenderId: "970385262663"
 	}
 };

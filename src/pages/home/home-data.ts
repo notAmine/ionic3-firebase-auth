@@ -1,10 +1,10 @@
 export const data = {
 	facebook: 'https://www.facebook.com/ionicframework',
-	phoneNumber: '+306973216110',
+	phoneNumber: '50201555',
 	email: {
-		to: 'skounis@gmail.com',
-		subject: 'Cordova Icons',
-		body: 'How are you? Nice greetings from Leipzig'
+		to: 'medaminebenslama@gmail.com',
+		subject: 'Movies Mobile',
+		body: 'Hello I love your App!'
 	},
 	officeLocation: '37.7736854,-122.421034'
 };

@@ -19,12 +19,20 @@ import { firebaseConfig } from '../config';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/auth.service';
 import { SignupPage } from '../pages/signup/signup';
+import {MoviesPage} from "../pages/movies/movies";
+import {MovieInfoPage} from "../pages/movie-info/movie-info";
+import {MovieService} from "../services/movie-service";
+import {IonicStorageModule} from "@ionic/storage";
+import {WatchlistPage} from "../pages/watchlist/watchlist";
 
 @NgModule({
 	declarations: [
 		MyApp,
 		LoginPage,
-		SignupPage
+		SignupPage,
+    MoviesPage,
+    MovieInfoPage,
+    WatchlistPage
 	],
 	imports: [
 		BrowserModule,
@@ -39,20 +47,27 @@ import { SignupPage } from '../pages/signup/signup';
 		GoogleMapsModule,
 		HomeModule,
 		SlideBoxModule,
-		WordpressModule
-	],
+		WordpressModule,
+    IonicStorageModule.forRoot()
+
+  ],
 	bootstrap: [IonicApp],
 	entryComponents: [
 		MyApp,
 		LoginPage,
-		SignupPage
+		SignupPage,
+    MoviesPage,
+    MovieInfoPage,
+    WatchlistPage
 	],
 	providers: [
 		Config,
 		StatusBar,
 		{provide: ErrorHandler, useClass: IonicErrorHandler},
 		AngularFireAuth,
-		AuthService
+		AuthService,
+    MovieService,
+    Storage,
 	]
 })
 export class AppModule {

@@ -9,12 +9,14 @@ export class GoogleMapsPage {
 	public markers: IMarker[];
 	public origin: IPoint;
 	public zoom: number;
+	public url:any;
 
 	constructor() {
 		this.initMarkers();
+		this.url = 'https://github.com/notAmine/ionic-maps/blob/master/src/assets/KML/Cinemas.kmz?raw=true';
 		this.origin = {
-			lat: 51.673858,
-			lng: 7.815982
+			lat: 36.831072,
+			lng: 10.147438,
 		};
 		this.zoom = 8;
 	}

@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar';
+import { ToastController } from 'ionic-angular';
 
 import { App, MenuController, Nav, Platform } from 'ionic-angular';
 import { ComponentsListPage } from '../pages/components/list/components.list.page';
@@ -10,6 +11,8 @@ import { WordpressListPage } from '../pages/wordpress/list/wordpress.list.page';
 
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/auth.service';
+import {MoviesPage} from "../pages/movies/movies";
+import {WatchlistPage} from "../pages/watchlist/watchlist";
 
 @Component({
 	templateUrl: 'app.html'
@@ -27,7 +30,8 @@ export class MyApp {
 	constructor(app: App, platform: Platform,
 		menu: MenuController,
 		private statusBar: StatusBar,
-		private auth: AuthService) {
+		private auth: AuthService,
+    private toastCtrl: ToastController) {
 		this.menu = menu;
 		this.app = app;
 		this.platform = platform;
@@ -36,10 +40,10 @@ export class MyApp {
 		// set our app's pages
 		this.pages = [
 			{ title: 'Home', component: HomePage, icon: 'home' },
-			{ title: 'Wordpress', component: WordpressListPage, icon: 'logo-wordpress' },
+			{ title: 'All Movies', component: MoviesPage, icon: 'film' },
+			{ title: 'My Watchlist', component: WatchlistPage, icon: 'star' },
 			{ title: 'Slides', component: SlideBoxPage, icon: 'swap' },
-			{ title: 'Google maps', component: GoogleMapsPage, icon: 'map' },
-			{ title: 'Components', component: ComponentsListPage, icon: 'grid' },
+			{ title: 'Cinemas maps', component: GoogleMapsPage, icon: 'map' },
 		];
 	}
 
@@ -76,7 +80,29 @@ export class MyApp {
 	}
 
 	openPage(page) {
-	this.menu.close();
-	this.nav.setRoot(page.component);
+	  if(this.auth.authenticated){
+      this.menu.close();
+      this.nav.setRoot(page.component);
+    }
+    else{
+	    this.presentToast();
+      this.menu.close();
+      this.nav.setRoot(LoginPage);
+    }
 	}
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'You Need To Log in First!',
+      duration: 3000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
 }
+

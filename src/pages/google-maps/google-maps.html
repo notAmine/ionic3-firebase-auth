@@ -3,7 +3,7 @@
 		<button ion-button menuToggle>
 			<ion-icon name="menu"></ion-icon>
 		</button>
-		<ion-title>Google maps</ion-title>
+		<ion-title>Cinemas maps</ion-title>
 	</ion-navbar>
 </ion-header>
 
@@ -12,12 +12,8 @@
 			[latitude]="origin.lat"
 			[longitude]="origin.lng"
 			[zoom]="zoom">
-		<agm-marker
-				*ngFor="let m of markers"
-				(markerClick)="clickedMarker(m.label)"
-				[latitude]="m.lat"
-				[longitude]="m.lng"
-				[label]="m.label">
-		</agm-marker>
+      <agm-kml-layer [url]= "url" >
+
+      </agm-kml-layer>
 	</agm-map>
 </ion-content>
